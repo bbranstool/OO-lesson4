@@ -27,6 +27,11 @@ public abstract class Shape {
         return color;
     }
 
+    @Override
+    public String toString() {
+        return "[Shape: (" + x + ", " + y + ", area = " + getArea() + ")]";
+    }
+
     public abstract float getArea();
     public abstract void render(Graphics2D g2);
 

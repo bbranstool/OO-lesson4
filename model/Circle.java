@@ -26,5 +26,10 @@ public class Circle extends Shape{
         g2.setColor(super.getColor());
         g2.drawOval((int) super.getX(), (int) super.getY(), (int) (radius * 2), (int) (radius * 2));
     }
+
+    @Override
+    public String toString() {
+        return "[Circle:" + super.toString() + " r=" + radius + "]";
+    }
     
 }

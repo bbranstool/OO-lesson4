@@ -33,4 +33,8 @@ public class Rectangle extends Shape{
         g2.drawRect((int) super.getX(), (int) super.getY(), (int) width, (int) height);
     }
     
+    @Override
+    public String toString() {
+        return "[Rectangle:" + super.toString() + " w=" + width + " h=" + height + "]";
+    }
 }

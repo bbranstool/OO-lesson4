@@ -39,8 +39,8 @@ public class MenuScreen {
 
         shapeButton.addActionListener(e -> {
             window.getContentPane().removeAll();
-            // TriangleDrawingPanel triangle = new TriangleDrawingPanel(window);
-            // triangle.init();
+            ShapePanel shapePanel = new ShapePanel(window);
+            shapePanel.init();
             window.pack();
             window.revalidate();
         });
