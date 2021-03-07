@@ -17,12 +17,9 @@ public class QuestionCanvas extends JPanel {
      */
     private static final long serialVersionUID = 1L;
 
-    private QuestionPanel panel;
-
     private int questionIndex = -1;
 
-    public QuestionCanvas(QuestionPanel panel) {
-        this.panel = panel;
+    public QuestionCanvas() {
         setPreferredSize(new Dimension(500, 400));
         setBackground(Color.BLACK);
     }

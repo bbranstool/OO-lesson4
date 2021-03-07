@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.QuestionButtonListener;
+
 public class QuestionPanel {
     
     private JFrame window;
@@ -19,7 +21,7 @@ public class QuestionPanel {
     private JButton quitButton = new JButton("Quit");
 
     private JButton enterButton = new JButton("Enter");
-    private JTextField asnwerField = new JTextField(20);
+    private JTextField answerField = new JTextField(20);
 
     private QuestionCanvas canvas;
 
@@ -36,7 +38,7 @@ public class QuestionPanel {
 
         JPanel south1 = new JPanel();
         south1.add(new JLabel("Answer: "));
-        south1.add(asnwerField);
+        south1.add(answerField);
         south1.add(enterButton);
         southPanel.add(south1);
 
@@ -46,9 +48,42 @@ public class QuestionPanel {
         south2.add(quitButton);
         southPanel.add(south2);
 
-        canvas = new QuestionCanvas(this);
+        canvas = new QuestionCanvas();
         cp.add(canvas, BorderLayout.CENTER);
-        
+
+        QuestionButtonListener listener = new QuestionButtonListener(this);
+        nextButton.addActionListener(listener);
+        prevButton.addActionListener(listener);
+        quitButton.addActionListener(listener);
+        enterButton.addActionListener(listener);
+
     }
 
+    public JButton getNextButton() {
+        return nextButton;
+    }
+
+    public JButton getEnterButton() {
+        return enterButton;
+    }
+
+    public JButton getPrevButton() {
+        return prevButton;
+    }
+
+    public JTextField getAnswerField() {
+        return answerField;
+    }
+
+    public JButton getQuitButton() {
+        return quitButton;
+    }
+
+    public JFrame getWindow() {
+        return window;
+    }
+
+    public QuestionCanvas getCanvas() {
+        return canvas;
+    }
 }
