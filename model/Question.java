@@ -1,5 +1,9 @@
 package model;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+
 public class Question {
     
     private String text;
@@ -16,6 +20,12 @@ public class Question {
 
     public void display() {
         System.out.println(text);
+    }
+
+    public void render(Graphics2D g2) {
+        g2.setColor(Color.YELLOW);
+        g2.setFont(new Font("Courier New", Font.BOLD, 14));
+        g2.drawString(text, 50, 100);
     }
 
 }

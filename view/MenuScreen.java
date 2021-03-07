@@ -24,20 +24,20 @@ public class MenuScreen {
         panel.setLayout(new GridLayout(2, 1));
         cp.add(panel, BorderLayout.CENTER);
 
-        JButton baseballButton = new JButton("Baseball Game");
-        JButton drawingButton = new JButton("Triangle Drawing");
-        panel.add(baseballButton);
-        panel.add(drawingButton);
+        JButton questionButton = new JButton("Question Classes");
+        JButton shapeButton = new JButton("Shape classes");
+        panel.add(questionButton);
+        panel.add(shapeButton);
 
-        baseballButton.addActionListener(e -> {
+        questionButton.addActionListener(e -> {
             window.getContentPane().removeAll();
-            // BaseballGamePanel baseballGamePanel = new BaseballGamePanel(window);
-            // baseballGamePanel.init();
+            QuestionPanel questionPanel = new QuestionPanel(window);
+            questionPanel.init();
             window.pack();
             window.revalidate();
         });
 
-        drawingButton.addActionListener(e -> {
+        shapeButton.addActionListener(e -> {
             window.getContentPane().removeAll();
             // TriangleDrawingPanel triangle = new TriangleDrawingPanel(window);
             // triangle.init();
