@@ -30,7 +30,7 @@ public class ShapePanel {
         southPanel.add(randomShapeButton);
         southPanel.add(exitButton);
 
-        canvas = new ShapeCanvas(this);
+        canvas = new ShapeCanvas();
         cp.add(canvas, BorderLayout.CENTER);
 
         ShapeEventListener listener = new ShapeEventListener(this);

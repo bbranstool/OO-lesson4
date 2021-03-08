@@ -16,11 +16,9 @@ public class ShapeCanvas extends JPanel{
 
     private static final long serialVersionUID = 1L;
 
-    private ShapePanel panel;
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
 
-    public ShapeCanvas(ShapePanel panel) {
-        this.panel = panel;
+    public ShapeCanvas() {
         setPreferredSize(new Dimension(500, 500));
         setBackground(Color.BLACK);
 
