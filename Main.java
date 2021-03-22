@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 
-// import view.MenuScreen;
+import view.MenuScreen;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,8 +9,8 @@ public class Main {
         window.setLocation(400, 100);
         window.setTitle("Choose a menu");
 
-        // MenuScreen menu = new MenuScreen(window);
-        // menu.init();
+        MenuScreen menu = new MenuScreen(window);
+        menu.init();
 
         window.pack();
         window.setVisible(true);
