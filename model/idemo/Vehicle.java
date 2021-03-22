@@ -1,5 +1,6 @@
 package model.idemo;
 
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public abstract class Vehicle implements ISound, IRender{
@@ -47,4 +48,14 @@ public abstract class Vehicle implements ISound, IRender{
                 make + " $" + price;
     }
 
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(x, y, image.getWidth(), image.getHeight());
+    }
+
+    @Override
+    public void translate(int dx, int dy) {
+        x += dx;
+        y += dy;        
+    }
 }
