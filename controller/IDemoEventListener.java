@@ -1,18 +1,24 @@
 package controller;
 
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 import model.idemo.IRender;
 import view.IDemoPanel;
+import view.MenuScreen;
 
-public class IDemoEventListener implements MouseListener,KeyListener{
+public class IDemoEventListener implements MouseListener, KeyListener, ActionListener{
 
     private IDemoPanel panel;
+    public static final int UNIT_MOVE = 5;
 
     public IDemoEventListener(IDemoPanel panel) {
         this.panel = panel;
@@ -36,18 +42,38 @@ public class IDemoEventListener implements MouseListener,KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int selectedIndex = panel.getCanvas().getSelectedIndex();
+        if (selectedIndex < 0) return;
+        IRender pic = panel.getCanvas().getPictures().get(selectedIndex);
         int key = e.getKeyCode();
         switch (key) {
             case KeyEvent.VK_LEFT:
+                pic.translate(-UNIT_MOVE, 0);
                 break;
             case KeyEvent.VK_RIGHT:
+                pic.translate(UNIT_MOVE, 0);
                 break;
             case KeyEvent.VK_UP:
+                pic.translate(0, -UNIT_MOVE);
                 break;
             case KeyEvent.VK_DOWN:
+                pic.translate(0, UNIT_MOVE);
                 break;
-
         }
+
+        panel.getCanvas().repaint();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == panel.getQuitButton()) {
+            JFrame window = panel.getWindow();
+            window.getContentPane().removeAll();
+            MenuScreen menu = new MenuScreen(window);
+            menu.init();
+            window.pack();
+            window.revalidate();
+        }        
     }
 
     @Override

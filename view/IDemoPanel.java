@@ -48,6 +48,7 @@ public class IDemoPanel {
 
         //Set focusable config
         quitButton.setFocusable(false);
+        quitButton.addActionListener(listener);
     }
 
     private void populatePicture() {
@@ -72,5 +73,13 @@ public class IDemoPanel {
 
     public IDemoCanvas getCanvas() {
         return canvas;
+    }
+
+    public JButton getQuitButton() {
+        return quitButton;
+    }
+
+    public JFrame getWindow() {
+        return window;
     }
 }

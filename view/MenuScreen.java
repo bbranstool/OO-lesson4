@@ -34,6 +34,14 @@ public class MenuScreen {
             window.revalidate();
         });
         JButton drawingButton = new JButton("Drawing Demo");
+        drawingButton.addActionListener(event -> {
+            window.getContentPane().removeAll();
+            DrawingDemoPanel drawingPanel = new DrawingDemoPanel(window);
+            drawingPanel.init();
+
+            window.pack();
+            window.revalidate();
+        });
         panel.add(idemoButton);
         panel.add(drawingButton);
 
